@@ -1,0 +1,13 @@
+1. null value for user is saving. check the mapping
+Ans) solved, the problem is i was miss used RedirectAttributes to store user details in session
+    instead of @SessionAttributes.     
+
+2. How to get the looggedUser details in views and controllers
+Ans)use @SessionAttributes("loggedUser") to store in session
+
+3. How can i show the user name in UserHome.jsp
+Ans)get username by ${loggedUser.userName}
+
+4. Check for homeurl in addContacts.jsp where it should go to UserHome.jsp
+Ans) you forgot a / at the begining of url value and whatever url value you provide
+     make sure you have GET handler method with @RequestMapping(value="/contacts/UserHome",method=RequestMethod.GET).
