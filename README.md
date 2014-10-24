@@ -10,7 +10,7 @@ git remote add origin git@github.com:jagannathsabat/PhoneDirectory.git
 git push origin master
 </pre>
 
-TO push changes/updates in repository:
+To push changes/updates in repository:
 <pre>
 git push -u
 </pre>
@@ -19,4 +19,9 @@ To clone repository on your system:
 
 <pre>
 git clone git@github.com:jagannathsabat/PhoneDirectory.git
+</pre>
+
+To get the latest:
+<pre>
+git pull
 </pre>
