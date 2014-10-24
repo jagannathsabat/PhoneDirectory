@@ -25,3 +25,11 @@ To get the latest:
 <pre>
 git pull
 </pre>
+
+To see the changes open the below url:
+<pre>
+https://github.com/jagannathsabat/PhoneDirectory/commits/master/src/main/java/pack/tulu/phone/controller/ContactController.java
+</pre>
+you can see any file changes, by simply changing file path in url for example to see changes of UserServiceImpl.java then the url will look like:
+<pre>
+https://github.com/jagannathsabat/PhoneDirectory/commits/master/src/main/java/pack/tulu/phone/services/impl/UserServiceImpl.java</pre>
