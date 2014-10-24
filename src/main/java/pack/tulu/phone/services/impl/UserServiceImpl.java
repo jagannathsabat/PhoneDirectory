@@ -29,13 +29,6 @@ public class UserServiceImpl implements UserService<User> {
 		return userDAO.save(entity);
 	}
 
-	@Transactional
-	@Override
-	public User get(User entity) {
-		LOG.debug("Control Flow : UserServiceImpl.get() Hit ");
-		return userDAO.get(entity);
-	}
-
 	@Override
 	public List<User> list() {
 		// TODO Auto-generated method stub
@@ -52,6 +45,17 @@ public class UserServiceImpl implements UserService<User> {
 	public User delete(User entity) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Transactional
+	@Override
+	public User get(Integer userId) {
+		return userDAO.get(userId);
+	}
+
+	@Override
+	public User getByUserName(String username) {
+		return userDAO.getByUserName(username);
 	}
 
 }

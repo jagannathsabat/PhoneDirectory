@@ -8,9 +8,8 @@
 <title>Modify Contact</title>
 </head>
 <body>
- <c:url value="/contacts/UserHome" var="home"/>
- <a href="${home}">Contact Home</a>
- 
+<%@ include file="../template/menubar.jsp" %>
+
 Modify Contact
 
 </body>

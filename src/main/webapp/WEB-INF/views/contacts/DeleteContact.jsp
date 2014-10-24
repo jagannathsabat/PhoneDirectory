@@ -8,8 +8,7 @@
 <title>Delete Contact</title>
 </head>
 <body>
- <c:url value="/contacts/UserHome" var="home"/>
- <a href="${home}">Contact Home</a>
+ <%@ include file="../template/menubar.jsp" %>
 Delete Contact
 
 </body>

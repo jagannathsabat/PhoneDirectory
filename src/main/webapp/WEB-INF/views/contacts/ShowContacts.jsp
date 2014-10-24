@@ -17,15 +17,7 @@ P{font-family: Arial; font-size: 20pt;}
 
 </head>
 <body>
-<p>
- <c:url value="/contacts/UserHome" var="home"/>
- <a href="${home}">Contact Home</a>
-
- <font color="CRIMSON"style="float:right;">${loggedUser.userName}</font>
- <font color="CRIMSON"style="float:right;">Welcome :</font> 
- 
-</p>
-<hr>
+	<%@ include file="../template/menubar.jsp" %>
 
 <center>
 <font color="DARKRED "style="float:center;font-size:20pt  "> Users Registered Are</font>

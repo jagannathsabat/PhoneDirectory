@@ -1,5 +1,6 @@
 package pack.tulu.phone.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pack.tulu.phone.model.Contact;
 import pack.tulu.phone.model.User;
 import pack.tulu.phone.services.ContactServices;
+import pack.tulu.phone.services.UserService;
 
 @Controller
 //@SessionAttributes("loggedUser")
@@ -24,7 +26,7 @@ public class ContactController {
 	private final Logger LOG = LoggerFactory.getLogger(ContactController.class);
 	
 	@Autowired
-	private ContactServices<Contact> contactService;
+	private UserService<User> userService;
 	
 	//SHOW CONTACT UserHome Get handler
 	@RequestMapping(value="/contacts/UserHome",method=RequestMethod.GET)
@@ -84,26 +86,25 @@ public class ContactController {
 	
 	//ADD CONTACT
 	@RequestMapping(value="/addContactView",method=RequestMethod.POST)
-	public String addContact(@ModelAttribute("loggedUser")User user, @ModelAttribute("contactDTO")Contact contact,Model model, BindingResult bindingResult){
+	public String addContact(@ModelAttribute("loggedUser")User loggedUser, @ModelAttribute("contactDTO")Contact contact,Model model, BindingResult bindingResult){
 		
 		LOG.debug("Control Flow : PhoneController.addContact() Hit ");
 		LOG.debug("User Registration Details : "+contact);
 		
-		//set user before saving contact so that user field will not be null in contact table
-		contact.setUser(user);
-		
-		Contact savedContact = contactService.save(contact);
-		System.out.println(contact.toString()); 
-		
-		model.addAttribute("savedContact", savedContact);
+		//get user before saving contact so that user field will not be null in contact table		
+		Integer userId = loggedUser.getUserId();
+		User user = userService.get(userId);
+		user.getContact().add(contact);
+		userService.update(user);
+				
 		return "contacts/UserHome";
 	}
 	
 	//Retrieving Contact List
 	@ModelAttribute("listOfContacts")
-	public List<Contact> listContacts(){
+	public List<Contact> listContacts(@ModelAttribute("loggedUser")User loggedUser){
 		LOG.debug("Control Flow : ContactController.listContacts() Hit ");
-		List<Contact> contactList = contactService.list();
+		List<Contact> contactList = new ArrayList<Contact>(userService.get(loggedUser.getUserId()).getContact());
 		System.out.println(contactList);
 		return contactList;
 	}

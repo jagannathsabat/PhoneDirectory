@@ -32,6 +32,8 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private Collection<Contact> contacts = new ArrayList<>();
 	
+	public User(){}
+	
 	public String getUserName() {
 		return userName;
 	}

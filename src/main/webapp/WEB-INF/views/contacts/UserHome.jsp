@@ -18,7 +18,7 @@ TD{font-family: Arial; font-size: 20pt;}
 
 <center><font  size= 10, face="Broadway" color="RED">Home Page</font></center>
 <hr>
-User is ${loggedUser.userName} ${message}
+<%@ include file="../template/menubar.jsp" %>
 <table align="center" border="3" bordercolor="green">
 
 <tr>

@@ -17,23 +17,7 @@ TD{font-family: Arial; font-size: 20pt;}
 
 <center><font  size= 10, face="Broadway" color="RED">Home Page</font></center>
 <hr>
-<table align="center" border="3" bordercolor="green">
-<tr>
-	<td>New User</td>
-	<td>
-		<c:url value="register" var="registerUrl"></c:url>
-		<a href="${registerUrl}">Register here</a>	
-	</td>
-</tr>
 
-<tr>
-	<td>Registered Users</td>
-	<td>
-		<c:url value="login" var="loginUrl"></c:url>
-		<a href="${loginUrl}" >Login</a>	
-	</td>
-</tr>
-
-
-</table></body>
+<%@ include file="template/menubar.jsp" %>
+</body>
 </html>

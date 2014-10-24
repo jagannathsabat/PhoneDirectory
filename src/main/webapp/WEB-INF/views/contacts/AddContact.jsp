@@ -17,8 +17,7 @@
 
 <body>
 	
-	<c:url value="/contacts/UserHome" var="homeUrl"></c:url>
-	<a href="${homeUrl}" style="float:left;">Home</a>
+	<%@ include file="../template/menubar.jsp" %>
 	<center><font  size= 6, face="Arial" color="RED">Add Contact</font></center>
 	<hr>
 		

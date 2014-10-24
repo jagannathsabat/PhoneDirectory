@@ -3,6 +3,7 @@ package pack.tulu.phone.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -65,6 +66,19 @@ public class UserDaoImpl implements UserDAO<User> {
 	public User delete(User entity) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public User get(Integer userId) {
+		return (User) getCurrentSession().get(User.class, userId);
+	}
+
+	@Override
+	public User getByUserName(String username) {
+		String hqlQuery = "select distinct from User where userName = ?";
+		Query query = getCurrentSession().createQuery(hqlQuery);
+		query.setString(1, username);
+		return (User) query.uniqueResult();
 	}
 
 }
