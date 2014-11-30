@@ -17,8 +17,7 @@ public interface UserDAO<E> {
 	E delete(E entity);
 
 	User get(Integer userId);
-
-	User getByUserName(String username);
+	User findByMobileNumber(String mobileNumber);
 	
 
 }
